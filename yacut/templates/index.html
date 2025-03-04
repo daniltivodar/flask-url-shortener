@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}YaCut - укоротитель ссылок{% endblock title %}
+{% block content %}
+  <main>
+    <section class="container my-5 px-4">
+      <h1 class="text-center"><span style="color:red">Ya</span>Cut</h1>
+      <p class="text-center my-4">
+        Создайте короткую ссылку автоматически или предложите свой вариант
+      </p>
+
+      <div class="container">
+        <div class="row my-3">
+          <div class="col-sm">
+          </div>
+          <div class="col-sm">
+            <form method="POST" novalidate>
+              {{ form.csrf_token }}
+              <div>
+                <div>
+                  {{ form.original_link(class="form-control form-control-lg py-2 mb-3", placeholder=form.original_link.label.text) }}<br />
+                  {% if form.original_link.errors %}
+                    <p><span style="color:red">
+                      {% for error in form.original_link.errors %}
+                        {{ error }}
+                      {% endfor %}
+                    </span></p>
+                  {% endif %}
+                </div>
+                <div>
+                  {{ form.custom_id(class="form-control form-control-lg py-2 mb-3", placeholder=form.custom_id.label.text) }}<br />
+                  {% if form.custom_id.errors %}
+                    <p><span style="color:red">
+                      {% for error in form.custom_id.errors %}
+                        {{ error }}
+                      {% endfor %}
+                    </span></p>
+                  {% endif %}
+                </div>
+                {{ form.submit(class="btn btn-primary") }}
+              </div>
+            </form>
+          </div>
+          <div class="col-sm">
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="column">
+          <div class="col-sm">
+            <h5 class="text-center">
+              {% with messages=get_flashed_messages(category_filter=["short-link-error"]) %}
+                {% if messages %}
+                  {% for message in messages %}
+                    {{ message }}
+                  {% endfor %}
+                {% else %}
+                  Ваша новая ссылка готова:<br />
+                  {% with messages=get_flashed_messages(category_filter=["short-link"]) %}
+                    {% if messages %}
+                      {% for message in messages %}
+                        <a href="{{ message }}" target="_blank">{{ message }}</a>
+                      {% endfor %}
+                    {% endif %}
+                  {% endwith %}
+                {% endif %}
+              {% endwith %}
+            </h5>
+          </div>
+          <div class="col-sm">
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+{% endblock content %}

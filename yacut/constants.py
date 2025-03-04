@@ -1,0 +1,10 @@
+EMPTY_BODY_ERROR_MESSAGE = 'Отсутствует тело запроса'
+EMPTY_URL_ERROR_MESSAGE = '"url" является обязательным полем!'
+FLASH_CATEGORY = 'short-link'
+FLASH_CATEGORY_ERROR = 'short-link-error'
+GET_URL_ERROR_MESSAGE = 'Указанный id не найден'
+LINK_LENGTH = 6
+MAX_LENGTH_ERROR_MESSAGE = 'Указано недопустимое имя для короткой ссылки'
+R_STRING = r'^[A-Za-z0-9]{1,16}$'
+UNIQUE_ERROR_MESSAGE = 'Предложенный вариант короткой ссылки уже существует.'
+WRONG_NAME_ERROR_MESSAGE = 'Указано недопустимое имя для короткой ссылки'
