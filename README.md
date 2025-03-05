@@ -40,7 +40,7 @@ flask run
 ```
 
 ## API documentation
-**[documentation](http://127.0.0.1:5000/redoc)**
+**[documentation](http://127.0.0.1:5000/redoc)** - Апи документация
 
-##Создатель
+## Создатель
 **[Данил Тиводар](https://github.com/daniltivodar)**
