@@ -8,6 +8,7 @@ class Config(object):
     )
     SECRET_KEY = os.getenv('SECRET_KEY', 'MY SECRET KEY')
 
+
 ACCEPTABLE_SYMBOLS = ascii_lowercase + ascii_uppercase + digits
 
 LINK_LENGTH = 6
