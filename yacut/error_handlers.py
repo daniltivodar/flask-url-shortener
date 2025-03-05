@@ -1,12 +1,18 @@
+from http import HTTPStatus
+
 from flask import jsonify, render_template
 
 from yacut import app, db
 
 
+class ObjectCreationException(Exception):
+    """Класс для обработки исключений при создании объекта модели."""
+
+
 class InvalidAPIUsage(Exception):
     """Класс для обработки исключений в API."""
 
-    status_code = 400
+    status_code = HTTPStatus.BAD_REQUEST
 
     def __init__(self, message, status_code=None):
         super().__init__()
@@ -18,15 +24,15 @@ class InvalidAPIUsage(Exception):
         return dict(message=self.message)
 
 
-@app.errorhandler(500)
+@app.errorhandler(HTTPStatus.INTERNAL_SERVER_ERROR)
 def internal_error(error):
     db.session.rollback()
-    return render_template('errors/500.html'), 500
+    return render_template('errors/500.html'), HTTPStatus.INTERNAL_SERVER_ERROR
 
 
-@app.errorhandler(404)
+@app.errorhandler(HTTPStatus.NOT_FOUND)
 def page_not_found(error):
-    return render_template('errors/404.html'), 404
+    return render_template('errors/404.html'), HTTPStatus.NOT_FOUND
 
 
 @app.errorhandler(InvalidAPIUsage)

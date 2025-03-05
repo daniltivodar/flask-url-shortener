@@ -18,23 +18,19 @@
               <div>
                 <div>
                   {{ form.original_link(class="form-control form-control-lg py-2 mb-3", placeholder=form.original_link.label.text) }}<br />
-                  {% if form.original_link.errors %}
-                    <p><span style="color:red">
-                      {% for error in form.original_link.errors %}
-                        {{ error }}
-                      {% endfor %}
-                    </span></p>
-                  {% endif %}
+                  <p><span style="color:red">
+                    {% for error in form.original_link.errors %}
+                      {{ error }}
+                    {% endfor %}
+                  </span></p>
                 </div>
                 <div>
                   {{ form.custom_id(class="form-control form-control-lg py-2 mb-3", placeholder=form.custom_id.label.text) }}<br />
-                  {% if form.custom_id.errors %}
-                    <p><span style="color:red">
-                      {% for error in form.custom_id.errors %}
-                        {{ error }}
-                      {% endfor %}
-                    </span></p>
-                  {% endif %}
+                  <p><span style="color:red">
+                    {% for error in form.custom_id.errors %}
+                      {{ error }}
+                    {% endfor %}
+                  </span></p>
                 </div>
                 {{ form.submit(class="btn btn-primary") }}
               </div>
@@ -49,22 +45,15 @@
         <div class="column">
           <div class="col-sm">
             <h5 class="text-center">
-              {% with messages=get_flashed_messages(category_filter=["short-link-error"]) %}
-                {% if messages %}
-                  {% for message in messages %}
-                    {{ message }}
-                  {% endfor %}
-                {% else %}
-                  Ваша новая ссылка готова:<br />
-                  {% with messages=get_flashed_messages(category_filter=["short-link"]) %}
-                    {% if messages %}
-                      {% for message in messages %}
-                        <a href="{{ message }}" target="_blank">{{ message }}</a>
-                      {% endfor %}
-                    {% endif %}
-                  {% endwith %}
-                {% endif %}
+              {% with messages=get_flashed_messages() %}
+                {% for message in messages %}
+                  {{ message }}
+                {% endfor %}
               {% endwith %}
+              {% if short %}
+                Ваша новая ссылка готова:<br />
+                <a href="{{ short }}" target="_blank">{{ short }}</a>
+              {% endif %}
             </h5>
           </div>
           <div class="col-sm">
