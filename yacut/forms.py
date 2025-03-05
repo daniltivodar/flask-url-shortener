@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, URLField
 from wtforms.validators import DataRequired, Length, Optional, Regexp
 
-from settings import MAX_LENGTH_ORIGINAL_URL, MAX_LENGTH_SHORT, PATTERN
+from settings import MAX_LENGTH_ORIGINAL_URL, MAX_LENGTH_SHORT, SHORT_PATTERN
 
 REQUIRED_FIELD = 'Обязательное поле'
 ORIGINAL_LINK_LABEL = 'Длинная ссылка'
@@ -25,7 +25,7 @@ class UrlForm(FlaskForm):
         validators=(
             Length(max=MAX_LENGTH_SHORT),
             Optional(),
-            Regexp(regex=PATTERN),
+            Regexp(regex=SHORT_PATTERN),
         ),
     )
     submit = SubmitField(SUBMIT_LINK_LABEL)

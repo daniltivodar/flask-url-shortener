@@ -1,4 +1,5 @@
 import os
+import re
 from string import ascii_lowercase, ascii_uppercase, digits
 
 
@@ -19,6 +20,6 @@ MAX_LENGTH_ORIGINAL_URL = 1024
 
 MAX_LENGTH_SHORT = 16
 
-PATTERN = fr'^[{ACCEPTABLE_SYMBOLS}]*$'
+SHORT_PATTERN = re.compile(fr'^[{ACCEPTABLE_SYMBOLS}]*$')
 
 SHORT_REDIRECT_VIEW = 'short_redirect_view'

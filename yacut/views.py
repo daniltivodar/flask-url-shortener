@@ -9,7 +9,7 @@ from yacut.models import URLMap
 @app.route('/<string:short>', methods=('GET',))
 def short_redirect_view(short):
     """Редиректит на оригинальную страницу по короткой ссылке."""
-    url_map = URLMap.get_uniqueness_short(short)
+    url_map = URLMap.get(short)
     if not url_map:
         abort(HTTPStatus.NOT_FOUND)
     return redirect(url_map.original)

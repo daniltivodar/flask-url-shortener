@@ -13,7 +13,7 @@ GET_URL_ERROR_MESSAGE = 'Указанный id не найден'
 
 @app.route('/api/id/<string:short>/', methods=('GET',))
 def get_url(short):
-    url_map = URLMap.get_uniqueness_short(short)
+    url_map = URLMap.get(short)
     if not url_map:
         raise InvalidAPIUsage(GET_URL_ERROR_MESSAGE, HTTPStatus.NOT_FOUND)
     return jsonify({'url': url_map.original}), HTTPStatus.OK
