@@ -26,7 +26,10 @@ def index_view():
             form.original_link.data,
             form.custom_id.data,
         )
-    except URLMap.ObjectCreationException as error:
+    except (
+        URLMap.ObjectCreationException,
+        URLMap.GetUniqueShortException,
+    ) as error:
         flash(error)
         return render_template('index.html', form=form)
     return render_template(

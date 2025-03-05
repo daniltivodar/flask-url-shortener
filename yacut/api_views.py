@@ -28,6 +28,9 @@ def create_url():
         raise InvalidAPIUsage(EMPTY_URL_ERROR_MESSAGE)
     try:
         url_map = URLMap.create(data['url'], data.get('custom_id'), True)
-    except URLMap.ObjectCreationException as error:
+    except (
+        URLMap.ObjectCreationException,
+        URLMap.GetUniqueShortException,
+    ) as error:
         raise InvalidAPIUsage(str(error))
     return jsonify(url_map.to_dict()), HTTPStatus.CREATED
