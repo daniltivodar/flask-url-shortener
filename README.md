@@ -35,13 +35,12 @@ DATABASE_URI=sqlite:///db.sqlite3
 
 4. Запустить сервис можно командой:
 ```bash
-flask db init
 flask db upgrade
 flask run
 ```
 
 ## API documentation
-**https://editor.swagger.io/** - сайт для работы с документацией API.
+**[documentation](http://127.0.0.1:5000/redoc)**
 
 ##Создатель
 **[Данил Тиводар](https://github.com/daniltivodar)**

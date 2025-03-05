@@ -5,10 +5,6 @@ from flask import jsonify, render_template
 from yacut import app, db
 
 
-class ObjectCreationException(Exception):
-    """Класс для обработки исключений при создании объекта модели."""
-
-
 class InvalidAPIUsage(Exception):
     """Класс для обработки исключений в API."""
 
