@@ -1,6 +1,6 @@
-# Сервис укорачивания ссылок Yacut
+# Сервис укорачивания ссылок flask-url-shortener
 
-Сервис укорачивания ссылок Yacut предназначен для уменьшения страшной и большой ссылки в одну маленькую, и очень компактную ссылку. В проекте также есть как API, так и собственная веб-страница. 
+Сервис укорачивания ссылок flask-url-shortener предназначен для уменьшения страшной и большой ссылки в одну маленькую, и очень компактную ссылку. В проекте также есть как API, так и собственная веб-страница. 
 
 ### Технологии
 - Python
@@ -14,12 +14,12 @@
 
 1. Склонируйте репозиторий.
 ```bash
-git clone https://github.com/daniltivodar/yacut.git
+git clone https://github.com/daniltivodar/flask-url-shortener.git
 ```
 
 2. Создайте и активируйте виртуальное окружение, заполнив его зависимостями из файла **requirements.txt**.
 ```bash
-cd yacut
+cd flask-url-shortener
 python -m venv venv
 source venv/Scripts/activate
 pip install -r requirements.txt
@@ -27,7 +27,7 @@ pip install -r requirements.txt
 
 3. Наполнить файл .env следующими командами:
 ```bash
-FLASK_APP=yacut
+FLASK_APP=flask-url-shortener
 FLASK_DEBUG=1
 SECRET_KEY=MY SECRET KEY
 DATABASE_URI=sqlite:///db.sqlite3
